@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.control.Button?>
+
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lab.fourth.controller.ODEController">
+   <children>
+   
+       <HBox>
+           <VBox.margin>
+               <Insets left="12.0" top="10.0" />
+           </VBox.margin>
+      <children>
+              <Label depthTest="ENABLE" text="Функция: " />
+      </children>
+           <!--<ImageView pickOnBounds="true" preserveRatio="true">
+               <Image url=""/>
+           </ImageView>-->
+           <alignment>center_left</alignment>
+       </HBox>
+   
+       <HBox>
+      <children>
+              <HBox prefWidth="75">
+                  <HBox.margin>
+                      <Insets bottom="10" />
+                  </HBox.margin>
+                  <alignment>center</alignment>
+                 <children>
+                     <Label text="x">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                     <VBox>
+                        <children>
+                            <Label text=" ">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" text="0">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                        </children>
+                     </VBox>
+                     <Label text=" = ">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </HBox>
+              <HBox>
+                 <children>
+                     <TextField fx:id="textFieldXStart" prefHeight="26.0" prefWidth="100.0" text="0" />
+                 </children>
+              </HBox>
+      </children>
+       </HBox>
+   
+       <HBox>
+      <children>
+              <HBox prefWidth="75">
+                  <HBox.margin>
+                      <Insets bottom="10" />
+                  </HBox.margin>
+                  <alignment>center</alignment>
+                 <children>
+                     <Label text="x">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                     <VBox>
+                        <children>
+                            <Label text=" ">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" text="n">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                        </children>
+                     </VBox>
+                     <Label text=" = ">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </HBox>
+              <HBox>
+                 <children>
+                     <TextField fx:id="textFieldXFinish" prefHeight="26.0" prefWidth="100.0" text="10" />
+                 </children>
+              </HBox>
+      </children>
+       </HBox>
+   
+       <HBox>
+      <children>
+              <HBox prefWidth="75">
+                  <HBox.margin>
+                      <Insets bottom="10" />
+                  </HBox.margin>
+                  <alignment>center</alignment>
+                 <children>
+                     <Label text="шаг = ">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </HBox>
+              <HBox>
+                 <children>
+                     <TextField fx:id="textFieldStep" prefHeight="26.0" prefWidth="100.0" text="0.1" />
+                 </children>
+              </HBox>
+      </children>
+       </HBox>
+   
+       <HBox>
+      <children>
+              <HBox prefWidth="75">
+                  <HBox.margin>
+                      <Insets bottom="10" />
+                  </HBox.margin>
+                  <alignment>center</alignment>
+                 <children>
+                     <Label text="y">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                     <VBox>
+                        <children>
+                            <Label text=" ">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" text="0">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                        </children>
+                     </VBox>
+                     <Label text=" = ">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </HBox>
+              <HBox>
+                 <children>
+                     <TextField fx:id="textFieldYZero" prefHeight="26.0" prefWidth="100.0" text="0" />
+                 </children>
+              </HBox>
+      </children>
+       </HBox>
+   
+       <HBox maxWidth="187">
+      <children>
+              <Button onAction="#calculateButton" prefWidth="100" text="Вычислить" />
+      </children>
+           <alignment>center</alignment>
+       </HBox>
+   
+       <HBox visible="false">
+      <children>
+              <HBox prefWidth="75">
+                  <HBox.margin>
+                      <Insets bottom="10" />
+                  </HBox.margin>
+                  <alignment>center</alignment>
+                 <children>
+                     <Label text="y">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                     <VBox>
+                        <children>
+                            <Label text=" ">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                            <Label alignment="BOTTOM_RIGHT" contentDisplay="BOTTOM" text="1">
+                                <font>
+                                    <Font size="8.0" />
+                                </font>
+                            </Label>
+                        </children>
+                     </VBox>
+                     <Label text=" = ">
+                         <font>
+                             <Font size="15.0" />
+                         </font>
+                     </Label>
+                 </children>
+              </HBox>
+              <HBox>
+                 <children>
+                     <TextField fx:id="textFieldYFirst" prefHeight="26.0" prefWidth="100.0" text="0.004" />
+                 </children>
+              </HBox>
+      </children>
+       </HBox>
+   
+       <Label fx:id="errorLabel">
+           <VBox.margin>
+               <Insets left="12.0" />
+           </VBox.margin>
+       </Label>
+   
+       <LineChart fx:id="functionLineChart" horizontalGridLinesVisible="false" legendVisible="false" minHeight="500" minWidth="1000" title="x - y" verticalGridLinesVisible="false">
+           <xAxis>
+               <CategoryAxis label="X" side="BOTTOM" />
+           </xAxis>
+           <yAxis>
+               <NumberAxis label="Y" side="LEFT" />
+           </yAxis>
+       </LineChart>
+   </children>
+
+    <VBox.margin>
+        <Insets left="12.0" />
+    </VBox.margin>
+</VBox>
